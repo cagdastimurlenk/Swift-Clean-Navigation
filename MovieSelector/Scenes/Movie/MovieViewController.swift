@@ -8,8 +8,41 @@
 
 import UIKit
 
-class MovieViewController: UIViewController {
+protocol MovieDisplayLogic: class {
+    
+}
 
+class MovieViewController: UIViewController ,MovieDisplayLogic{
+
+    var model: MovieList.ViewModel.MovieViewModel?
+    
+    static let identifier = "MovieViewController"
+    var interactor: MovieBusinessLogic?
+    
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    func setup()
+    {
+        let viewController = self
+        let interactor = MovieInteractor()
+        let presenter = MoviePresenter()
+        
+        viewController.interactor = interactor
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

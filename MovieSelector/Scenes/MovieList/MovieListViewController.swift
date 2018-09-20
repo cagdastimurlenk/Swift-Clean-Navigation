@@ -8,14 +8,59 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController {
+protocol MovieListDisplayLogic: class {
+    func displayMovieList(_ viewModel: MovieList.ViewModel)
+}
 
+class MovieListViewController: UIViewController,MovieListDisplayLogic,MovieRouter {
+
+    
+    // MARK: - Properties
+    static let identifier = "MovieListViewController"
+    var interactor: MovieListBusinessLogic?
+    var initialMovies : [MovieList.ViewModel.MovieViewModel]?
+    var movies: [MovieList.ViewModel.MovieViewModel]?{
+        didSet{
+//            notFoundView.isHidden =  (electricians?.count ?? 0 != 0)
+//            tableView.reloadData()
+        }
+    }
+    
+    // MARK: - Initialization
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?){
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder){
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    func setup(){
+        let viewController = self
+        let interactor = MovieListInteractor()
+        let presenter = MovieListPresenter()
+        
+        viewController.interactor = interactor
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    func displayMovieList(_ viewModel: MovieList.ViewModel) {
+        //.....
+    }
 
+    @IBAction func toChildClick(_ sender: Any)
+    {
+        showMoviePage()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

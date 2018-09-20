@@ -7,3 +7,17 @@
 //
 
 import Foundation
+protocol MovieListBusinessLogic {
+    //func getMovieList(_ request: MovieList.Request)
+}
+
+class MovieListInteractor: MovieListBusinessLogic{
+    var presenter: MovieListPresentationLogic?
+    
+//    func getElectricianList(_ request: ElectricianList.Request) {
+//        ElectricianApi.getElectricianList(request: request,
+//                                          success:  { [weak weakSelf = self] (response) in
+//                                            weakSelf?.presenter?.presentElectricianList(ElectricianList.Response(data: response))
+//        })
+//    }
+}

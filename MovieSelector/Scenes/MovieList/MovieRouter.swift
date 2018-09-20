@@ -7,3 +7,44 @@
 //
 
 import Foundation
+import UIKit
+protocol MovieRouter {
+    func showSelectedMovie(_ model: MovieList.ViewModel.MovieViewModel)
+    func showMoviePage()
+}
+
+extension MovieRouter where Self: UIViewController{
+
+    func showMoviePage()
+    {
+        show(storyboard: .main, identifier: MovieViewController.identifier, showMenuOnNavigationBar: false) { T in
+            //let vc = T as! MovieViewController
+            
+        }
+    }
+    func showSelectedMovie(_ model: MovieList.ViewModel.MovieViewModel){
+        
+    }
+    
+//    func showSelectedMovie(_ model: MovieList.ViewModel..ViewModel.NewsViewModel){
+//        show(storyboard: .menu,
+//             identifier: NewsDetailViewController.identifier,
+//             configure: { T in
+//                let vc = T as! NewsDetailViewController
+//                vc.model = model
+//        })
+//    }
+    
+//    func presentSelectedMovie(){
+//
+//        present(storyboard:.menu,
+//                identifier: MovieListViewController.identifier,
+//                animate:false,
+//                modalPresentationStyle:UIModalPresentationStyle ,
+//                addInNavigationController: false,
+//                configure : { (controller) in
+//                    let filterVC = controller as? ElectricianFilterViewController
+//                    filterVC?.delegate = self as? ElectricianFilterViewControllerDelegate
+//        })
+//    }
+}

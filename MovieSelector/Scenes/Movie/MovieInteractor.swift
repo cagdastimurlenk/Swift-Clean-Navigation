@@ -7,3 +7,11 @@
 //
 
 import Foundation
+protocol MovieBusinessLogic {
+    //func getMovieList(_ request: MovieList.Request)
+}
+
+class MovieInteractor: MovieBusinessLogic{
+    var presenter: MoviePresentationLogic?
+    
+}

@@ -7,3 +7,15 @@
 //
 
 import Foundation
+protocol MoviePresentationLogic {
+//    func presentMovieList(_ response: MovieList.Response)
+}
+
+class MoviePresenter: MoviePresentationLogic{
+    
+    weak var viewController: MovieDisplayLogic?
+    
+//    func presentMovieList(_ response: MovieList.Response) {
+//        viewController?.displayMovieList(response.getViewModel())
+//    }
+}

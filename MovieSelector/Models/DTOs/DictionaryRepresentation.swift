@@ -7,3 +7,7 @@
 //
 
 import Foundation
+protocol DictionaryRepresentation{
+    var dictionaryRepresentation: [String: Any] {get}
+}
+

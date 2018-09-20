@@ -2,8 +2,8 @@
 //  Routable.swift
 //  petsapp
 //
-//  Created by volkan biçer on 26/08/2017.
-//  Copyright © 2017 volkan biçer. All rights reserved.
+//  Created by Cagdas on 26/08/2017.
+//  Copyright © 2017 Tronasoft. All rights reserved.
 //
 
 import Foundation
@@ -82,10 +82,6 @@ extension Routable where Self:UIViewController{
             : storyboard.instantiateInitialViewController()) as? T
             else{
                 return assertionFailure("Invalid controller for storyboard \(storyboard).")
-        }
-        
-        if showMenuOnNavigationBar{            
-            controller.addMenuItemToNavigationBar()
         }
         
         controller.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
